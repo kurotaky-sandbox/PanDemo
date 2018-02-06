@@ -34,6 +34,7 @@ class PanResponderExample extends Component {
     this._panResponder = PanResponder.create({
       onStartShouldSetPanResponder: this._handleStartShouldSetPanResponder,
       onMoveShouldSetPanResponder: this._handleMoveShouldSetPanResponder,
+      onPanResponderGrant: this._handlePanResponderGrant,
       onPanResponderMove: this._handlePanResponderMove,
       onPanResponderRelease: this._handlePanResponderEnd,
       onPanResponderTerminate: this._handlePanResponderEnd
@@ -71,9 +72,7 @@ class PanResponderExample extends Component {
   }
 
   _highlight = () => {
-    this.circle && this.circle.setNativeProps({
-      styles: { backgroundColor: CIRCLE_HIGHLIGHT_COLOR }
-    });
+    this.circle && this.circle.setNativeProps({ style: { backgroundColor: CIRCLE_HIGHLIGHT_COLOR } });
   };
 
   _unHighlight = () => {
